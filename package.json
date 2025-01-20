@@ -1,0 +1,56 @@
+{
+  "name": "@mattyreacts/react-highlight",
+  "version": "1.0.0",
+  "description": "A React component wrapper that will highlight all text found in child components",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "jest --env=jsdom"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx|js|jsx)$": "ts-jest",
+      "^.+\\.(js|jsx)$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattyreacts/react-highlight.git"
+  },
+  "keywords": [
+    "React",
+    "text",
+    "highlight"
+  ],
+  "author": "Mathew Crothers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattyreacts/react-highlight/issues"
+  },
+  "homepage": "https://github.com/mattyreacts/react-highlight#readme",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.2.0",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  },
+  "dependencies": {
+    "@types/deep-equal": "^1.0.4",
+    "deep-equal": "^2.2.3"
+  }
+}
