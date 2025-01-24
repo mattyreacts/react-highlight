@@ -17,7 +17,7 @@ The component actively observes changes in the DOM. If new text matching the sea
 ## Example
 ```ts
 "use client"
-import Highlight from "../components";
+import Highlight from "@mattyreacts/react-highlight";
 import { useCallback, useState} from "react";
 import { Stack, TextField } from '@mui/material';
 

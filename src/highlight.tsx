@@ -168,8 +168,11 @@ function Highlight({ children, query, style: _style = defaultStyle}: HighlightPr
         }
     }, [style, _style]);
 
+    const [cb, highlight, clearHighlight] = useMemo(() => {
+        return mutationCallbackFactory(query, id.current, style);
+    }, [query, style]);
+
     useEffect(() => {
-        const [cb, highlight, clearHighlight] = mutationCallbackFactory(query, id.current, style);
         observer.current = new MutationObserver(cb);
         refs.current.forEach((child: HTMLElement | null) => {
             if (child === null)
@@ -188,7 +191,11 @@ function Highlight({ children, query, style: _style = defaultStyle}: HighlightPr
     const childrenWithRefs = useMemo(() => React.Children.map(children, (child, index) => {
         if (React.isValidElement(child)) {
             return React.cloneElement(child as React.ReactElement<any>, {
-                ref: (el: HTMLElement) => refs.current.set(index, el),
+                ref: (el: HTMLElement) => {
+                    refs.current.set(index, el);
+                    let nodes = getAllChildNodes(el);
+                    nodes.forEach(highlight);
+                }
             });
         }
         return child;
