@@ -4,6 +4,8 @@
  * @returns 
  */
 export function getAllChildNodes(elem: Node): Node[] {
+    if(!elem)
+        return [];
     let ret: Node[] = [elem];
     if(elem.hasChildNodes()) {
         elem.childNodes.forEach((node: ChildNode) => {

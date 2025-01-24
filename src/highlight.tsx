@@ -193,8 +193,10 @@ function Highlight({ children, query, style: _style = defaultStyle}: HighlightPr
             return React.cloneElement(child as React.ReactElement<any>, {
                 ref: (el: HTMLElement) => {
                     refs.current.set(index, el);
-                    let nodes = getAllChildNodes(el);
-                    nodes.forEach(highlight);
+                    if(el) {
+                        let nodes = getAllChildNodes(el);
+                        nodes.forEach(highlight);
+                    }
                 }
             });
         }
