@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import Highlight from "../src";
+import { generateRandomHexString } from '../src/randomString';
+import { getAllChildNodes } from '../src/getNodes';
 
 describe('Replaces text with a span', () => {
     test('Single Match', () => {
@@ -50,3 +52,21 @@ describe('Custom Style', () => {
         expect(span.style.color).toBe('blue');
     });
 });
+
+describe('Random string', () => {
+    test('Fail on negative length', () => {
+        try {
+            generateRandomHexString(-2);
+            fail('String generated with negavtive length');
+        } catch {
+
+        }
+    });
+});
+
+describe('Get nodes', () => {
+    test('Null element returns empty array', () => {
+        const res = getAllChildNodes(null!);
+        expect(res.length).toBe(0);
+    });
+})
